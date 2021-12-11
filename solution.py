@@ -8,7 +8,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #mailserver = ("es5754@nyu.edu, 1025)
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
     clientSocket = socket(AF_INET,SOCK_STREAM)
-    clientSocket.connect(mailserver)
+    clientSocket.connect((mailserver,1025))
     # Fill in start
     # Fill in end
 
