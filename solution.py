@@ -1,4 +1,5 @@
 from socket import *
+import base64
 
 
 def smtp_client(port=1025, mailserver='127.0.0.1'):
@@ -74,7 +75,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send QUIT command and get server response.
     # Fill in start
-    clientSocket.send("QUIT\r\n\n".encode())
+    clientSocket.send("QUIT\r\n".encode())
     message=clientSocket.recv(1024)
     print(message)
     clientSocket.close()
