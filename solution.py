@@ -49,7 +49,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     data = "DATA\r\n"
     clientSocket.send((data.encode()))
-    recv4 clientSocket.recv(1024)
+    recv4 = clientSocket.recv(1024)
     print("After Data Command: " =recv4)
     #if recv1[:3] != '250':
         #print ('250 reply not received from server')
