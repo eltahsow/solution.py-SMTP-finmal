@@ -14,7 +14,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in end
 
     recv = clientSocket.recv(1024).decode()
-    print(recv)
+    #print(recv)
     #if recv[:3] != '220':
         #print('220 reply not received from server.')
 
@@ -22,7 +22,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     heloCommand = 'HELO Alice\r\n'
     clientSocket.send(heloCommand.encode())
     recv1 = clientSocket.recv(1024).decode()
-    print(recv1)
+    #print(recv1)
     #if recv1[:3] != '250':
         #print('250 reply not received from server.')
 
@@ -30,8 +30,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     mailFrom = "MAIL FROM: <es5754@ny.edu> \r\n"
     clientSocket.send(mailFrom.encode())
-    recv2 = clientSocket.recv(1024)
-    print(recv2 )
+    recv2 = clientSocket.recv(1024).decode()
+    #print(recv2 )
     #if recv1[:3] != '250':
         #print('250 reply not received from server')
     # Fill in end
@@ -39,8 +39,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send RCPT TO command and print server response.
     # Fill in start
     rcptTO = "RCPT TO: <destination@gmail.com> \r\n"
-    recv3 = clientSocket.recv(1024)
-    print("after RCPT TO COMMAND: " +recv3)
+    recv3 = clientSocket.recv(1024).decode()
+    #print("after RCPT TO COMMAND: " +recv3)
     #if recv1[:3] != '250':
         #print('250 reply not received from server')
     # Fill in end
@@ -49,8 +49,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Fill in start
     data = "DATA\r\n"
     clientSocket.send((data.encode()))
-    recv4 = clientSocket.recv(1024)
-    print("After Data Command: " =recv4)
+    recv4 = clientSocket.recv(1024).decode()
+    #print("After Data Command: " =recv4)
     #if recv1[:3] != '250':
         #print ('250 reply not received from server')
     # Fill in end
@@ -62,8 +62,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     message = raw_input("Enter your message: \r\n")
     clientSocket.send(message.encode())
     clientSocket.send(endmsg.encode())
-    recv_msg = clientSocket.recv(1024)
-    print ("Response after sending message body:" +recv_msg.decode())
+    recv_msg = clientSocket.recv(1024).decode()
+    #print ("Response after sending message body:" +recv_msg.decode())
     #if recv1[:3] != '250':
         #print('250 reply not received from server')
     # Fill in end
